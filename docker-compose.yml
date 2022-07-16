@@ -1,0 +1,37 @@
+# version: '3.9'
+
+# services:
+#   # db:
+#   #   image: postgres:14.3
+#   #   volumes:
+#   #     - pg-data:/var/lib/postgresql/data
+#   #   environment:
+#   #     - POSTGRES_USER=OAK_TODO
+#   #     - POSTGRES_PASSWORD=OAK
+#   #     - POSTGRES_DB=TODOLIST
+#   #   ports:
+#   #     - "54321:5432"
+#   web:
+#     image: oak92/fistapp:latest
+#     ports:
+#       - 80:80
+#       - 1323:1323
+#     networks:
+#       - todo_network
+#     depends_on:
+#       - db
+#     environment:
+#       - POSTGRES_USER=OAK_TODO
+#       - POSTGRES_PASSWORD=OAK
+#       - POSTGRES_HOST=192.168.137.128
+#       - POSTGRES_PORT=54321
+#       - POSTGRES_DB=TODOLIST
+#       - PGDATA=/var/lib/postgresql/data/pgdata
+#     restart: always
+
+# volumes:
+#   pg-data:
+
+# networks:
+#   todo_network:
+#     driver: bridge
