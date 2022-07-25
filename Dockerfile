@@ -1,8 +1,8 @@
 # Step 1: Build Angular frontend
 FROM node:16-alpine3.15 as ANGULAR_BUILD
 RUN apk update
-COPY ./angular-frontend /usr/angular-frontend
-WORKDIR /usr/angular-frontend
+COPY ./DivideExpenses /usr/DivideExpenses
+WORKDIR /usr/DivideExpenses
 RUN npm config delete proxy
 RUN npm config delete https-proxy
 RUN npm install -g npm@latest
@@ -23,7 +23,7 @@ RUN ng build
 FROM nginx:alpine
 RUN apk update
 WORKDIR /usr/share/nginx/html
-COPY --from=ANGULAR_BUILD /usr/angular-frontend/dist/todolists ./
+COPY --from=ANGULAR_BUILD /usr/DivideExpensesdist/DivideExpenses ./
 # COPY --from=GO_BUILD ./go-backend/server ./
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY commands.sh ./
